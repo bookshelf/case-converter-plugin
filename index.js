@@ -13,28 +13,32 @@ const _ = require('lodash')
  * @module plugins/case-converter
  */
 module.exports = function caseConverter(bookshelf) {
+  const prototype = bookshelf.Model.prototype
+
   /**
    * Monkey-patched Model class.
    * @extends Model
    */
   bookshelf.Model = bookshelf.Model.extend({
     /**
-     * @description Converts attribute keys to camel case when fetching data from the database.
+     * Converts attribute keys to camel case when fetching data from the database.
      */
-    parse: function(attrs) {
+    parse(attrs) {
+      prototype.parse.apply(this, arguments)
+
       return _.mapKeys(attrs, function(value, key) {
         return _.camelCase(key)
       })
     },
 
     /**
-     * @method
-     * @description
-     *    Converts attribute keys to snake case just before saving a model to the database. The converted attributes
-     *    will not be set on the model.
+     * Converts attribute keys to snake case just before saving a model to the database. The converted attributes
+     * will not be set on the model.
      * @override
      */
-    format: function(attrs) {
+    format(attrs) {
+      prototype.format.apply(this, arguments)
+
       return _.mapKeys(attrs, function(value, key) {
         return _.snakeCase(key)
       })
