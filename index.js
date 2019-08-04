@@ -22,13 +22,11 @@ module.exports = function caseConverter(bookshelf) {
   bookshelf.Model = bookshelf.Model.extend({
     /**
      * Converts attribute keys to camel case when fetching data from the database.
+     * @override
      */
     parse(attrs) {
       prototype.parse.apply(this, arguments)
-
-      return _.mapKeys(attrs, function(value, key) {
-        return _.camelCase(key)
-      })
+      return _.mapKeys(attrs, (value, key) => _.camelCase(key))
     },
 
     /**
@@ -38,10 +36,7 @@ module.exports = function caseConverter(bookshelf) {
      */
     format(attrs) {
       prototype.format.apply(this, arguments)
-
-      return _.mapKeys(attrs, function(value, key) {
-        return _.snakeCase(key)
-      })
+      return _.mapKeys(attrs, (value, key) => _.snakeCase(key))
     }
   })
 }
