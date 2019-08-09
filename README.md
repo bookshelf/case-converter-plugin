@@ -1,12 +1,18 @@
 # Bookshelf Case Converter Plugin
 
-Bookshelf plugin for handling the conversion between the database's snake_cased and a model's camelCased properties
-automatically.
+[![Build Status](https://travis-ci.com/bookshelf/case-converter-plugin.svg?branch=master)](https://travis-ci.com/bookshelf/case-converter-plugin)
+
+This is a plugin for the [Bookshelf Node.js ORM](https://bookshelfjs.org/) that handles the conversion between the
+database's snake_cased and a model's camelCased properties automatically.
 
 ## How to use
 
-First load the plugin using `bookshelf.plugin('case-converter')`. No further action is required, since the plugin will
-automatically convert model attributes between snake_case and camelCase.
+First install the package:
+
+    npm install bookshelf-case-converter-plugin
+
+Then load the plugin using `bookshelf.plugin('bookshelf-case-converter-plugin')`. No further action is required, since
+the plugin will automatically convert model attributes between snake_case and camelCase.
 
 ## Limitations
 
