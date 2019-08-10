@@ -1,5 +1,11 @@
 # Changelog
 
+**1.0.0** <small>_Aug 10, 2019_</small> - [Diff](https://github.com/bookshelf/case-converter-plugin/compare/v0.1.1...v1.0.0)
+
+#### Bug fixes
+
+- Actually fix plugin overriding any previously defined `parse` and `format` methods.
+
 **0.1.1** <small>_Aug 9, 2019_</small> - [Diff](https://github.com/bookshelf/case-converter-plugin/compare/v0.1.0...v0.1.1)
 
 #### Bug fixes
