@@ -25,8 +25,8 @@ module.exports = function caseConverter(bookshelf) {
      * @override
      */
     parse(attrs) {
-      prototype.parse.apply(this, arguments)
-      return _.mapKeys(attrs, (value, key) => _.camelCase(key))
+      const parsedAttributes = prototype.parse.apply(this, arguments)
+      return _.mapKeys(parsedAttributes, (value, key) => _.camelCase(key))
     },
 
     /**
@@ -35,8 +35,8 @@ module.exports = function caseConverter(bookshelf) {
      * @override
      */
     format(attrs) {
-      prototype.format.apply(this, arguments)
-      return _.mapKeys(attrs, (value, key) => _.snakeCase(key))
+      const parsedAttributes = prototype.format.apply(this, arguments)
+      return _.mapKeys(parsedAttributes, (value, key) => _.snakeCase(key))
     }
   })
 }
