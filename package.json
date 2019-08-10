@@ -1,6 +1,6 @@
 {
   "name": "bookshelf-case-converter-plugin",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "A plugin for Bookshelf that converts between the database's snake_cased and a model's camelCased properties automatically.",
   "main": "index.js",
   "scripts": {
