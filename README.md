@@ -23,3 +23,4 @@ work with this plugin yet:
 - [model.query()](https://bookshelfjs.org/api.html#Model-instance-query)
 - [model.where()](https://bookshelfjs.org/api.html#Model-instance-where)
 - [collection.query()](https://bookshelfjs.org/api.html#Collection-instance-query)
+- [collection.where()](https://bookshelfjs.org/api.html#Collection-instance-where)
