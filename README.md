@@ -1,6 +1,6 @@
 # Bookshelf Case Converter Plugin
 
-[![Build Status](https://travis-ci.com/bookshelf/case-converter-plugin.svg?branch=master)](https://travis-ci.com/bookshelf/case-converter-plugin)
+[![Build Status](https://travis-ci.com/bookshelf/case-converter-plugin.svg?branch=master)](https://travis-ci.com/bookshelf/case-converter-plugin) [![Greenkeeper badge](https://badges.greenkeeper.io/bookshelf/case-converter-plugin.svg)](https://greenkeeper.io/)
 
 This is a plugin for the [Bookshelf Node.js ORM](https://bookshelfjs.org/) that handles the conversion between the
 database's snake_cased and a model's camelCased properties automatically.
