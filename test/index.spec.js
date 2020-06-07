@@ -4,17 +4,17 @@ const db = knex({ client: 'sqlite3', connection: ':memory:', useNullAsDefault: t
 const bookshelf = require('bookshelf')(db)
 const caseConverter = require('..')
 
-describe('Case Converter Plugin', function() {
+describe('Case Converter Plugin', function () {
   var Author
   var author
 
-  before(function() {
+  before(function () {
     bookshelf.plugin(caseConverter)
 
     Author = bookshelf.Model.extend({ tableName: 'authors' })
     author = new Author()
 
-    return db.schema.createTable('authors', table => {
+    return db.schema.createTable('authors', (table) => {
       table.increments('id')
       table.string('first_name')
       table.string('last_name')
@@ -31,8 +31,8 @@ describe('Case Converter Plugin', function() {
 
   after(() => db.destroy())
 
-  describe('Model#parse()', function() {
-    it('converts snake case attributes to camel case', function() {
+  describe('Model#parse()', function () {
+    it('converts snake case attributes to camel case', function () {
       var parsedAttributes = author.parse({
         first_name: 'Aayla',
         last_name: 'Secura'
@@ -41,8 +41,8 @@ describe('Case Converter Plugin', function() {
       equal(parsedAttributes.firstName, 'Aayla')
     })
 
-    it('converts attributes to camel case when fetching data from the database', function() {
-      return new Author({ id: 1 }).fetch().then(function(author) {
+    it('converts attributes to camel case when fetching data from the database', function () {
+      return new Author({ id: 1 }).fetch().then(function (author) {
         equal(typeof author.attributes.firstName, 'string')
         equal(author.attributes.first_name, undefined)
         equal(author.get('firstName'), 'Leia')
@@ -50,8 +50,8 @@ describe('Case Converter Plugin', function() {
     })
   })
 
-  describe('Model#format()', function() {
-    it('converts camel case attributes to snake case', function() {
+  describe('Model#format()', function () {
+    it('converts camel case attributes to snake case', function () {
       var formattedAttributes = author.format({
         firstName: 'Aayla',
         lastName: 'Secura'
@@ -59,8 +59,8 @@ describe('Case Converter Plugin', function() {
       equal(formattedAttributes.first_name, 'Aayla')
     })
 
-    it('converts attributes to snake case when saving data to the database', function() {
-      return new Author({ firstName: 'Aayla', lastName: 'Secura' }).save().then(function(author) {
+    it('converts attributes to snake case when saving data to the database', function () {
+      return new Author({ firstName: 'Aayla', lastName: 'Secura' }).save().then(function (author) {
         equal(typeof author.attributes.id, 'number')
         equal(author.isNew(), false)
       })
