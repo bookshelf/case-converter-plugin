@@ -3,14 +3,14 @@ const knex = require('knex')
 const db = knex({ client: 'sqlite3', connection: ':memory:', useNullAsDefault: true })
 const caseConverter = require('..')
 
-describe('Case Converter Plugin integration tests', function() {
+describe('Case Converter Plugin integration tests', function () {
   let bookshelf
 
   beforeEach(() => {
     bookshelf = require('bookshelf')(db)
   })
 
-  it('does not override other plugins that modify the parse method', function() {
+  it('does not override other plugins that modify the parse method', function () {
     function testPlugin(bookshelf) {
       bookshelf.Model = bookshelf.Model.extend({
         parse(attrs) {
@@ -33,7 +33,7 @@ describe('Case Converter Plugin integration tests', function() {
     equal(parsedAttributes.firstNameParsed, 'Aayla')
   })
 
-  it('does not override other plugins that modify the format method', function() {
+  it('does not override other plugins that modify the format method', function () {
     function testPlugin(bookshelf) {
       bookshelf.Model = bookshelf.Model.extend({
         format(attrs) {
